@@ -1,9 +1,13 @@
 package com.adactin_Pom.in;
 
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
 
 public class Register_btn {
+
+	public static WebDriver driver;
 
 	@FindBy(xpath = "//select[@name='location']")
 	private WebElement location_1;
@@ -28,6 +32,20 @@ public class Register_btn {
 
 	@FindBy(name = "child_room")
 	private WebElement child_room;
+
+	@FindBy(xpath = "//input[@type='submit']")
+	private WebElement submit;
+
+	public WebElement getSubmit() {
+		return submit;
+	}
+
+	public Register_btn(WebDriver driver2) {
+		this.driver = driver2;
+
+		PageFactory.initElements(driver2, this);
+
+	}
 
 	public WebElement getLocation_1() {
 		return location_1;
